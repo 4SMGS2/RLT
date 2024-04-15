@@ -4,6 +4,7 @@ import logging
 import sys
 from datetime import datetime, timedelta
 import bson
+import pymongo
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
@@ -23,7 +24,7 @@ def aggregate(dt_from, dt_upto, group_type):
         interval = timedelta(days=1)
         date_format = "%Y-%m-%dT00:00:00"
     elif group_type == "month":
-        interval = timedelta(days=30)
+        interval = timedelta(days=28)
         date_format = "%Y-%m-01T00:00:00"
 
     aggregated_dt = {}
